@@ -11,5 +11,20 @@ public class StockAccount {
 		companyShares=new ArrayList<>();
 	}
 	
+	public double valueOf() {
+		return 0;
+	}
+	
+	void buy(int amount, String symbol) {
+		for(CompanyShares share: companyShares ) {
+			if(share.getSymbol().equals(symbol)) {
+				int existingAmount=share.getNoOfShares();
+				share.setNoOfShares(amount+existingAmount);
+				return;
+			}
+		}
+		System.out.println("Symbol Not found");
+	}
+	
 
 }
