@@ -8,5 +8,11 @@ public class CompanyShares {
 	private int noOfShares;
 	private LocalDateTime datetime;
 	
+	public CompanyShares(String symbol,int noOfShares,LocalDateTime datetime) {
+		this.symbol=symbol;
+		this.noOfShares=noOfShares;
+		this.datetime=datetime;
+		
+	}
 
 }
