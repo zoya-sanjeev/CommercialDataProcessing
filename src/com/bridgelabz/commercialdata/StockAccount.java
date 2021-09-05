@@ -1,10 +1,15 @@
 package com.bridgelabz.commercialdata;
 import java.util.*;
-import My
+import com.bridgelabz.stacksandqueues.MyStack;
 import java.time.LocalDateTime;
 public class StockAccount {
 	private String fileName;
 	LinkedList<CompanyShares> companyShares;
+	
+	private Stack<String> buyStack;
+	private Stack<String> sellStack;
+	private Queue<LocalDateTime> buyTime;
+	private Queue<LocalDateTime> sellTime;
 	
 	public StockAccount(String fileName) {
 		this.fileName=fileName;
@@ -30,6 +35,8 @@ public class StockAccount {
 		
 		CompanyShares newShare=new CompanyShares(symbol, amount, LocalDateTime.now());
 		companyShares.add(newShare);
+		buyStack.push(symbol);
+		buyTime.add(LocalDateTime.now());
 		
 		
 	}
@@ -39,6 +46,8 @@ public class StockAccount {
 			if(share.getSymbol().equals(symbol)) {
 				int existingAmount=share.getNoOfShares();
 				share.setNoOfShares(existingAmount-amount);
+				sellStack.push(symbol);
+				sellTime.add(LocalDateTime.now());
 				return;
 			}
 		}
