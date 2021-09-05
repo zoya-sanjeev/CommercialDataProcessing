@@ -14,5 +14,30 @@ public class CompanyShares {
 		this.datetime=datetime;
 		
 	}
+	
+	public String getSymbol() {
+		return symbol;
+	}
+
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	public int getNoOfShares() {
+		return noOfShares;
+	}
+
+	public void setNoOfShares(int noOfShares) {
+		this.noOfShares = noOfShares;
+	}
+
+	public LocalDateTime getDatetime() {
+		return datetime;
+	}
+
+	public void setDatetime(LocalDateTime datetime) {
+		this.datetime = datetime;
+	}
+
 
 }
