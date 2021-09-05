@@ -15,7 +15,7 @@ public class StockAccount {
 		return 0;
 	}
 	
-	void buy(int amount, String symbol) {
+	public void buy(int amount, String symbol) {
 		for(CompanyShares share: companyShares ) {
 			if(share.getSymbol().equals(symbol)) {
 				int existingAmount=share.getNoOfShares();
@@ -30,7 +30,7 @@ public class StockAccount {
 		
 	}
 	
-	void sell(int amount, String symbol) {
+	public void sell(int amount, String symbol) {
 		for(CompanyShares share: companyShares ) {
 			if(share.getSymbol().equals(symbol)) {
 				int existingAmount=share.getNoOfShares();
@@ -39,6 +39,16 @@ public class StockAccount {
 			}
 		}
 		System.out.println("Symbol Not found");
+		
+	}
+	
+	public void printReport() {
+		System.out.println(fileName);
+		for(CompanyShares share: companyShares) {
+			System.out.println("Symbol: "+share.getSymbol());
+			System.out.println("No of shares: "+share.getNoOfShares());
+			System.out.println("date and time: "+ share.getDatetime());
+		}
 		
 	}
 	
