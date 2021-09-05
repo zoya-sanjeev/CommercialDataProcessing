@@ -1,19 +1,23 @@
 package com.bridgelabz.commercialdata;
-
 import java.util.*;
+import My
 import java.time.LocalDateTime;
 public class StockAccount {
 	private String fileName;
-	List<CompanyShares> companyShares;
+	LinkedList<CompanyShares> companyShares;
 	
 	public StockAccount(String fileName) {
 		this.fileName=fileName;
-		companyShares=new ArrayList<>();
+		companyShares=new LinkedList<>();
 	}
 	
 	public double valueOf() {
 		return 0;
 	}
+	
+	public void addCompanyShares(CompanyShares Shares) {
+        companyShares.add(Shares);
+    } 
 	
 	public void buy(int amount, String symbol) {
 		for(CompanyShares share: companyShares ) {
