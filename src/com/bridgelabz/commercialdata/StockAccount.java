@@ -26,5 +26,17 @@ public class StockAccount {
 		System.out.println("Symbol Not found");
 	}
 	
+	void sell(int amount, String symbol) {
+		for(CompanyShares share: companyShares ) {
+			if(share.getSymbol().equals(symbol)) {
+				int existingAmount=share.getNoOfShares();
+				share.setNoOfShares(existingAmount-amount);
+				return;
+			}
+		}
+		System.out.println("Symbol Not found");
+		
+	}
+	
 
 }
