@@ -1,7 +1,7 @@
 package com.bridgelabz.commercialdata;
 
 import java.util.*;
-
+import java.time.LocalDateTime;
 public class StockAccount {
 	private String fileName;
 	List<CompanyShares> companyShares;
@@ -23,7 +23,11 @@ public class StockAccount {
 				return;
 			}
 		}
-		System.out.println("Symbol Not found");
+		
+		CompanyShares newShare=new CompanyShares(symbol, amount, LocalDateTime.now());
+		companyShares.add(newShare);
+		
+		
 	}
 	
 	void sell(int amount, String symbol) {
