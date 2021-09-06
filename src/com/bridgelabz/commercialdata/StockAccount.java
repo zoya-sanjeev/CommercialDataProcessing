@@ -50,7 +50,9 @@ public class StockAccount {
 	}
 	
 	public void sell(int amount, String symbol) {
-		for(CompanyShares share: companyShares ) {
+		MyNode tempNode=(MyNode) companyShares.getHead();
+		while(tempNode!=null) {
+			CompanyShares share=(CompanyShares) tempNode.getKey();
 			if(share.getSymbol().equals(symbol)) {
 				int existingAmount=share.getNoOfShares();
 				share.setNoOfShares(existingAmount-amount);
@@ -58,6 +60,7 @@ public class StockAccount {
 				sellTime.add(LocalDateTime.now());
 				return;
 			}
+			
 		}
 		System.out.println("Symbol Not found");
 		
