@@ -37,7 +37,7 @@ public class StockAccount {
 				share.setNoOfShares(amount+existingAmount);
 				return;
 			}
-			
+			tempNode=(MyNode) tempNode.getNext();
 		}
 		
 		CompanyShares newShare=new CompanyShares(symbol, amount, LocalDateTime.now());
@@ -59,6 +59,7 @@ public class StockAccount {
 				sellTime.add(LocalDateTime.now());
 				return;
 			}
+			tempNode=(MyNode) tempNode.getNext();
 			
 		}
 		System.out.println("Symbol Not found");
@@ -74,6 +75,7 @@ public class StockAccount {
 			System.out.println("Symbol: "+share.getSymbol());
 			System.out.println("No of shares: "+share.getNoOfShares());
 			System.out.println("date and time: "+ share.getDatetime());
+			tempNode=(MyNode) tempNode.getNext();
 		}
 		
 	}

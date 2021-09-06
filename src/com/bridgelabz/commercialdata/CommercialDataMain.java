@@ -10,8 +10,10 @@ public class CommercialDataMain {
 		account.addCompanyShares(reliance);
 		CompanyShares tata=new CompanyShares("tata", 50, LocalDateTime.now());
 		account.addCompanyShares(tata);
+		account.printReport();
 		account.buy(10,"reliance");
 		account.sell(10, "tata");
+		account.printReport();
 		
 	}
 
