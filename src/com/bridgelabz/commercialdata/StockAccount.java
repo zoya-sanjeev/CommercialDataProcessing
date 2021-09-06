@@ -24,10 +24,6 @@ public class StockAccount {
 		return 0;
 	}
 	
-	public void addCompanyShares(CompanyShares Shares) {
-		MyNode newNode=new MyNode(Shares);
-        companyShares.add((INode) Shares);
-    } 
 	
 	public void buy(int amount, String symbol) {
 		MyNode tempNode=(MyNode) companyShares.getHead();
