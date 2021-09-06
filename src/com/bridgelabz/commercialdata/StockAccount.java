@@ -68,7 +68,10 @@ public class StockAccount {
 	
 	public void printReport() {
 		System.out.println(fileName);
-		for(CompanyShares share: companyShares) {
+		MyNode tempNode=(MyNode) companyShares.getHead();
+		
+		while(tempNode!=null) {
+			CompanyShares share=(CompanyShares) tempNode.getKey();
 			System.out.println("Symbol: "+share.getSymbol());
 			System.out.println("No of shares: "+share.getNoOfShares());
 			System.out.println("date and time: "+ share.getDatetime());
