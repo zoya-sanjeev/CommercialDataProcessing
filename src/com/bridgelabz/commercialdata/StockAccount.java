@@ -1,6 +1,10 @@
 package com.bridgelabz.commercialdata;
 import java.util.*;
 import com.bridgelabz.stacksandqueues.MyStack;
+import com.bridgelabz.linkedlist.INode;
+import com.bridgelabz.linkedlist.LinkedList;
+import com.bridgelabz.linkedlist.MyNode;
+
 import java.time.LocalDateTime;
 public class StockAccount {
 	private String fileName;
@@ -21,20 +25,24 @@ public class StockAccount {
 	}
 	
 	public void addCompanyShares(CompanyShares Shares) {
-        companyShares.add(Shares);
+		MyNode newNode=new MyNode(Shares);
+        companyShares.add((INode) Shares);
     } 
 	
 	public void buy(int amount, String symbol) {
-		for(CompanyShares share: companyShares ) {
+		MyNode tempNode=(MyNode) companyShares.getHead();
+		while(tempNode!=null) {
+			CompanyShares share=(CompanyShares) tempNode.getKey();
 			if(share.getSymbol().equals(symbol)) {
 				int existingAmount=share.getNoOfShares();
 				share.setNoOfShares(amount+existingAmount);
 				return;
 			}
+			
 		}
 		
 		CompanyShares newShare=new CompanyShares(symbol, amount, LocalDateTime.now());
-		companyShares.add(newShare);
+		companyShares.add(new MyNode(newShare));
 		buyStack.push(symbol);
 		buyTime.add(LocalDateTime.now());
 		
