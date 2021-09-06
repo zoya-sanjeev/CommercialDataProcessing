@@ -8,7 +8,7 @@ import com.bridgelabz.linkedlist.MyNode;
 import java.time.LocalDateTime;
 public class StockAccount {
 	private String fileName;
-	LinkedList<CompanyShares> companyShares;
+	static LinkedList<CompanyShares> companyShares;
 	
 	private Stack<String> buyStack;
 	private Stack<String> sellStack;
@@ -24,6 +24,9 @@ public class StockAccount {
 		return 0;
 	}
 	
+	public static void addCompanyShares(CompanyShares share) {
+		companyShares.add(new MyNode(share));
+	}
 	
 	public void buy(int amount, String symbol) {
 		MyNode tempNode=(MyNode) companyShares.getHead();
